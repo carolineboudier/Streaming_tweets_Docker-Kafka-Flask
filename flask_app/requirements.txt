@@ -1,0 +1,12 @@
+# requirements.txt
+kafka-python==2.0.2
+tweepy==3.10.0
+tweepy-streaming-api-emu==0.4
+Flask-SQLAlchemy==2.4.1
+psycopg2-binary==2.8.4
+twitter==1.18.0
+Flask==1.1.1
+Flask-Table==0.2.9
+plotly==4.14.3
+pandas==1.1.5
+numpy==1.19.5

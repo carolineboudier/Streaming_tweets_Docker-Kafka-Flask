@@ -1,0 +1,11 @@
+# requirements.txt
+kafka-python==2.0.2
+tweepy==3.10.0
+tweepy-streaming-api-emu==0.4
+Flask-SQLAlchemy==2.4.1
+psycopg2-binary==2.8.4
+twitter==1.18.0
+sqlalchemy
+psycopg2
+gensim==4.0.1
+nltk==3.6.2

@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  producer:
+    build: ./producer # sera buildé avec le Dockerfile présent dans /producer
+    environment: # définit toutes les variables d'environnement utilisées par la suite
+      KAFKA_BROKER_URL: broker:9092
+      TRANSACTIONS_TOPIC: queueing.transactions
+      TRANSACTIONS_PER_SECOND: 1000
+
+  consumer:
+    build: ./consumer
+    environment:
+      KAFKA_BROKER_URL: broker:9092
+      TRANSACTIONS_TOPIC: queueing.transactions
+    depends_on:
+       - db
+  
+  flaskapp:
+    build: ./flask_app
+    ports :
+        - "5000:5000"
+    environment:
+      KAFKA_BROKER_URL: broker:9092
+      FLASK_APP: ./flask_app # définit la localisation du code de l'application Flask
+      FLASK_ENV: development
+      
+  db:
+    build : ./database
+      
+
+networks:
+  default:
+    external:
+      name: kafka-network
